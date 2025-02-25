@@ -1,28 +1,41 @@
 'use client';
 
 import BaseThemeSwitcher from '@/app/_components/base/BaseThemeSwitcher/BaseThemeSwitcher';
-import { AppThemeContextProvider } from '@/app/_contexts/AppThemeContext';
-import { WeddingInfo } from '@/app/_types/wedding.type';
-import { FC } from 'react';
+import { ThemeContext, ThemeContextProvider, ThemeContextValue } from '@/app/_contexts/ThemeContext';
+import { SharedPropsWithWeddingInfo } from '@/app/_types/component.type';
+import { Theme } from '@/app/_types/theme.type';
+import { FC, useContext } from 'react';
 import GallerySection from './GallerySection/GallerySection';
-import Hero from './Hero/Hero';
+import HeroSection from './HeroSection/HeroSection';
 import InfoSection from './InfoSection/InfoSection';
 import LocationSection from './LocationSection/LocationSection';
 
-export type ContainerProps = {
-  weddingInfo: WeddingInfo;
+const bgClassNameByTheme: Record<Theme, string> = {
+  day: `bg-[url(/images/bg-overlay-day.webp)]`,
+  night: `bg-[url(/images/bg-overlay-night.webp)]`,
 };
 
-const Container: FC<ContainerProps> = ({ weddingInfo }) => {
+const InvitationContainer: FC<SharedPropsWithWeddingInfo> = ({ weddingInfo }) => {
+  const {theme } = useContext(ThemeContext) as ThemeContextValue;
+
   return weddingInfo ? (
-    <AppThemeContextProvider>
-      <Hero weddingInfo={weddingInfo} />
-      <InfoSection weddingInfo={weddingInfo} className="mt-6 md:mt-8" />
-      <GallerySection weddingInfo={weddingInfo} className="mt-1 mb-6 md:mt-3 md:mb-8" />
-      <LocationSection weddingInfo={weddingInfo} className="h-dvh" />
-      <BaseThemeSwitcher className="absolute right-0 top-0 m-4" />
-    </AppThemeContextProvider>
+    <div
+      data-theme={theme}
+      className={`bg-background text-foreground ${bgClassNameByTheme[theme]}`}
+    >
+      <BaseThemeSwitcher className="fixed right-0 top-0 m-4" />
+      <HeroSection weddingInfo={weddingInfo} />
+      <InfoSection weddingInfo={weddingInfo} className="px-5 py-12 lg:py-20" />
+      <GallerySection weddingInfo={weddingInfo} className="px-5" />
+      <LocationSection weddingInfo={weddingInfo} className="h-dvh px-5 py-12 mt-12" />
+    </div>
   ) : null;
 };
 
-export default Container;
+const InvitationContainerWithTheme: FC<SharedPropsWithWeddingInfo> = (props) => (
+  <ThemeContextProvider>
+    <InvitationContainer {...props} />
+  </ThemeContextProvider>
+);
+
+export default InvitationContainerWithTheme;

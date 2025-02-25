@@ -2,20 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --theme-day-background: #f4f2f0;
+  --theme-day-foreground: #6f5c52;
+  --theme-day-primary: #db9f8d;
+  --theme-day-secondary: #9ab09a;
+  --theme-day-link: #5676b5;
+  --theme-day-card-background: #ffffff;
+  --theme-day-caption: #888888;
+
+  --theme-night-background: #303d5d;
+  --theme-night-foreground: #d7d5d9;
+  --theme-night-primary: #db9f9e;
+  --theme-night-secondary: #9288bd;
+  --theme-night-link: #6a9aee;
+  --theme-night-card-background: #3d4a6f;
+  --theme-night-caption: #ada9ad;
+
+  --background: var(--theme-day-background);
+  --foreground: var(--theme-day-foreground);
+  --primary: var(--theme-day-primary);
+  --secondary: var(--theme-day-secondary);
+  --link: var(--theme-day-link);
+  --caption: var(--theme-day-caption);
+  --card-background: var(--theme-day-card-background);
+}
+
 @layer base {
   [data-theme="day"] {
-    --background: #f4f2f0;
-    --foreground: #6f5c52;
-    --primary: #db9f8d;
-    --secondary: #9ab09a;
-    --link: #5676b5;
+    --background: var(--theme-day-background);
+    --foreground: var(--theme-day-foreground);
+    --primary: var(--theme-day-primary);
+    --secondary: var(--theme-day-secondary);
+    --link: var(--theme-day-link);
+    --caption: var(--theme-day-caption);
+    --card-background: var(--theme-day-card-background);
   }
+
   [data-theme="night"] {
-    --background: #f4f0f2;
-    --foreground: #404060;
-    --primary: #db9f9e;
-    --secondary: #928cbd;
-    --link: #5676b5;
+    --background: var(--theme-night-background);
+    --foreground: var(--theme-night-foreground);
+    --primary: var(--theme-night-primary);
+    --secondary: var(--theme-night-secondary);
+    --link: var(--theme-night-link);
+    --caption: var(--theme-night-caption);
+    --card-background: var(--theme-night-card-background);
   }
 }
 

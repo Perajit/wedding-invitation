@@ -96,7 +96,7 @@ const BaseImageCollection: FC<BaseImageCollectionProps> = (props) => {
   return (
     <SlideshowLightbox
       className={`
-        grid gap-2
+        grid gap-3.5
         ${getContainerClassName()}
         ${className}
       `}
@@ -108,10 +108,7 @@ const BaseImageCollection: FC<BaseImageCollectionProps> = (props) => {
             key={item.src}
             src={item.src}
             alt=""
-            className={`
-              block w-full h-full object-cover rounded-lg
-              ${getItemClassName(i)}
-            `}
+            className={`block w-full h-full object-cover rounded-lg ${getItemClassName(i)}`}
           />
         );
       })}

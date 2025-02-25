@@ -103,8 +103,7 @@ export const BaseTimelineItem: FC<BaseTimelineItemProps> = (props) => {
   return (
     <li
       className={`
-        flex-1
-        flex w-100
+        flex-1 flex w-100
         ${responsiveClassNames.container}
         ${className}
       `}
@@ -112,8 +111,7 @@ export const BaseTimelineItem: FC<BaseTimelineItemProps> = (props) => {
       <div className={responsiveClassNames.leftSpace} />
       <div
         className={`
-          flex flex-col items-center
-          mx-auto
+          flex flex-col items-center mx-auto
           ${responsiveClassNames.node}
           ${nodeClassName}
         `}

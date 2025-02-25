@@ -14,6 +14,8 @@ export default {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
         link: "var(--link)",
+        caption: "var(--caption)",
+        'card-background': "var(--card-background)",
       },
     },
   },

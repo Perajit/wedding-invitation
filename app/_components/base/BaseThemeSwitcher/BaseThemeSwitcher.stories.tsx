@@ -1,7 +1,7 @@
 import '@/app/globals.css';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AppThemeContextProvider } from '@/app/_contexts/AppThemeContext';
+import { ThemeContextProvider } from '@/app/_contexts/ThemeContext';
 import BaseThemeSwitcher from './BaseThemeSwitcher';
 
 const meta = {
@@ -14,9 +14,9 @@ const meta = {
   argTypes: {},
   decorators: [
     (Story) => (
-      <AppThemeContextProvider>
+      <ThemeContextProvider>
         <Story />
-      </AppThemeContextProvider>
+      </ThemeContextProvider>
     ),
   ],
 } satisfies Meta<typeof BaseThemeSwitcher>;

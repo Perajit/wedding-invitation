@@ -79,15 +79,17 @@ export const mockWeddingInfo: WeddingInfo = {
       },
     },
   ],
-  contacts: [
-    {
-      text: 'ติดต่อพวกเราได้ที่',
-      channel: 'Email',
-      href: 'https://google.com'
-    },
-  ],
   rsvpUrl: 'https://google.com',
-  coverImage: 'https://fastly.picsum.photos/id/13/2500/1667.jpg?hmac=SoX9UoHhN8HyklRA4A3vcCWJMVtiBXUg0W4ljWTor7s',
+  coverImage: {
+    day: {
+      src: 'https://fastly.picsum.photos/id/13/2500/1667.jpg?hmac=SoX9UoHhN8HyklRA4A3vcCWJMVtiBXUg0W4ljWTor7s',
+      position: 'center'
+    },
+    night: {
+      src: 'https://fastly.picsum.photos/id/152/3888/2592.jpg?hmac=M1xv1MzO9xjf5-tz1hGR9bQpNt973ANkqfEVDW0-WYU',
+      position: 'center'
+    },
+  },
   galleryImages: [
     'https://fastly.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I',
     'https://fastly.picsum.photos/id/21/3008/2008.jpg?hmac=T8DSVNvP-QldCew7WD4jj_S3mWwxZPqdF0CNPksSko4',
