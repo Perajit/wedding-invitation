@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #f4f2f0;
-  --foreground: #6f5c52;
-  --primary: #db9f8d;
-  --secondary: #9ab09a;
-  --link: #5676b5;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html[data-theme="day"] {
+    --background: #f4f2f0;
+    --foreground: #6f5c52;
+    --primary: #db9f8d;
+    --secondary: #9ab09a;
+    --link: #5676b5;
+  }
+  html[data-theme="night"] {
+    --background: #f4f0f2;
+    --foreground: #404060;
+    --primary: #db9f9e;
+    --secondary: #928cbd;
+    --link: #5676b5;
   }
 }
 

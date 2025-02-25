@@ -2,6 +2,7 @@ import { getMetadata } from '@/app/_services/getMetadata.service';
 import { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
+import { getDefaultTheme } from './_utils/app.util';
 import './globals.css';
 
 const DefaultFont = localFont({
@@ -28,8 +29,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const theme = getDefaultTheme();
+
   return (
-    <html lang="en">
+    <html lang="en" data-theme={theme}>
       <head>
         <link rel="stylesheet" href="https://d1mviimjnzagon.cloudfront.net/fonts/esthentic/v1/esthentic.css"></link>
       </head>

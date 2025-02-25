@@ -1,5 +1,6 @@
 import { SharedPropsWithWeddingInfo } from '@/app/_types/component.type';
 import { Language } from '@/app/_types/translation.type';
+import { getDefaultTheme } from '@/app/_utils/app.util';
 import { FC } from 'react';
 
 const lang = Language.EN;
@@ -7,21 +8,28 @@ const lang = Language.EN;
 const Hero: FC<SharedPropsWithWeddingInfo> = (props) => {
   const { weddingInfo, className = '' } = props;
 
+  const theme = getDefaultTheme();
+
+  // TODO: remove support for old type (string)
+  const coverImage = typeof weddingInfo.coverImage === 'object' && weddingInfo.coverImage[theme] ? weddingInfo.coverImage[theme] : {
+    src: weddingInfo.coverImage,
+    position: 'center',
+  };
+
   return (
     <div
       className={`
-        bg-no-repeat bg-cover bg-center
+        bg-no-repeat bg-cover
         flex flex-col justify-end
         h-dvh overflow-hidden
         md:h-auto
         ${className}
       `}
-      style={{ backgroundImage: `url(${weddingInfo.coverImage})` }}
+      style={{ backgroundImage: `url(${coverImage.src})`, backgroundPosition: coverImage.position }}
     >
       <div
         className={`
           bg-no-repeat bg-contain bg-left-top
-          bg-[url(/images/bg-rsvp.svg)]
           min-w-[360px]
           text-neutral-200
           m-[0.5rem] px-[4.5rem] pt-[4.5rem] pb-[3rem]
@@ -29,6 +37,7 @@ const Hero: FC<SharedPropsWithWeddingInfo> = (props) => {
           lg:text-2xl lg:m-[2rem] lg:mt-[12rem] lg:px-[6rem] lg:pt-[6rem] lg:pb-[5rem]
           xl:text-3xl xl:m-[2.5rem] xl:mt-[6em] xl:px-[7.5rem] xl:pt-[8rem] xl:pb-[6rem]
         `}
+        style={{ backgroundImage: `url(images/bg-rsvp-${theme}.svg)` }}
       >
         <p>
           Together with their families

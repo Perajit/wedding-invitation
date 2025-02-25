@@ -53,7 +53,6 @@ const InfoSection: FC<SharedPropsWithWeddingInfo> = (props) => {
   }, [schedule]);
 
 
-  console.log('---', { weddingInfo });
   return (
     <section
       id="info"
