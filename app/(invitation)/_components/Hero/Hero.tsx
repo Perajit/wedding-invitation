@@ -1,14 +1,16 @@
+'use client';
+
+import { AppThemeContext, AppThemeContextValue } from '@/app/_contexts/AppThemeContext';
 import { SharedPropsWithWeddingInfo } from '@/app/_types/component.type';
 import { Language } from '@/app/_types/translation.type';
-import { getDefaultTheme } from '@/app/_utils/app.util';
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 
 const lang = Language.EN;
 
 const Hero: FC<SharedPropsWithWeddingInfo> = (props) => {
   const { weddingInfo, className = '' } = props;
 
-  const theme = getDefaultTheme();
+  const { theme } = useContext(AppThemeContext) as AppThemeContextValue;
 
   // TODO: remove support for old type (string)
   const coverImage = typeof weddingInfo.coverImage === 'object' && weddingInfo.coverImage[theme] ? weddingInfo.coverImage[theme] : {
@@ -18,6 +20,7 @@ const Hero: FC<SharedPropsWithWeddingInfo> = (props) => {
 
   return (
     <div
+      id="hero"
       className={`
         bg-no-repeat bg-cover
         flex flex-col justify-end
@@ -26,6 +29,7 @@ const Hero: FC<SharedPropsWithWeddingInfo> = (props) => {
         ${className}
       `}
       style={{ backgroundImage: `url(${coverImage.src})`, backgroundPosition: coverImage.position }}
+      data-theme={theme}
     >
       <div
         className={`

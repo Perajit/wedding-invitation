@@ -1,12 +1,17 @@
+'use client';
+
 import PlaceIcon from '@/app/_components/icon/PlaceIcon';
+import { AppThemeContext, AppThemeContextValue } from '@/app/_contexts/AppThemeContext';
 import { SharedPropsWithWeddingInfo } from '@/app/_types/component.type';
 import { Language } from '@/app/_types/translation.type';
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 
 const lang = Language.TH;
 
 const LocationSection: FC<SharedPropsWithWeddingInfo> = (props) => {
   const { weddingInfo, className = '' } = props;
+
+  const { theme } = useContext(AppThemeContext) as AppThemeContextValue;
 
   return (
     <section
@@ -17,6 +22,7 @@ const LocationSection: FC<SharedPropsWithWeddingInfo> = (props) => {
         lg:bg-transparent
         ${className}
       `}
+      data-theme={theme}
     >
       <div
         className={`
