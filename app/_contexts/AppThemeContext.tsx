@@ -1,8 +1,8 @@
 'use client';
 
 import { createContext, FC, PropsWithChildren, useState } from 'react';
-import { AppTheme } from '../_types/app.type';
-import { getDefaultTheme } from '../_utils/app.util';
+import { AppTheme } from '../_types/theme.type';
+import { getDefaultTheme } from '../_utils/theme.util';
 
 export type AppThemeContextValue = {
   theme: AppTheme;

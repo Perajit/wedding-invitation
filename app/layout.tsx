@@ -2,7 +2,7 @@ import { getMetadata } from '@/app/_services/getMetadata.service';
 import { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
-import { getDefaultTheme } from './_utils/app.util';
+import { getDefaultTheme } from './_utils/theme.util';
 import './globals.css';
 
 const DefaultFont = localFont({

@@ -1,4 +1,4 @@
-import { AppTheme } from '../_types/app.type';
+import { AppTheme } from '../_types/theme.type';
 
 const dayCutOffHours = 6;
 const nightCutoffHours = 18;

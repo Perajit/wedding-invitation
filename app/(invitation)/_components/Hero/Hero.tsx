@@ -12,9 +12,8 @@ const Hero: FC<SharedPropsWithWeddingInfo> = (props) => {
 
   const { theme } = useContext(AppThemeContext) as AppThemeContextValue;
 
-  // TODO: remove support for old type (string)
-  const coverImage = typeof weddingInfo.coverImage === 'object' && weddingInfo.coverImage[theme] ? weddingInfo.coverImage[theme] : {
-    src: weddingInfo.coverImage,
+  const coverImage = weddingInfo.coverImage[theme] ? weddingInfo.coverImage[theme] : {
+    src: '',
     position: 'center',
   };
 
