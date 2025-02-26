@@ -6,11 +6,10 @@ import WeddingKhanMakProcessionIcon from '@/app/_components/icon/WeddingKhanMakP
 import WeddingReceptionIcon from '@/app/_components/icon/WeddingReceptionIcon';
 import WeddingRingExchangeIcon from '@/app/_components/icon/WeddingRingExchangeIcon';
 import WeddingWaterBlessingIcon from '@/app/_components/icon/WeddingWaterBlessingIcon';
-import { AppThemeContext, AppThemeContextValue } from '@/app/_contexts/AppThemeContext';
 import { SharedPropsWithWeddingInfo } from '@/app/_types/component.type';
 import { Language } from '@/app/_types/translation.type';
 import { WeddingCeremony } from '@/app/_types/wedding.type';
-import { FC, ReactNode, useContext, useMemo } from 'react';
+import { FC, ReactNode, useMemo } from 'react';
 
 const lang = Language.TH;
 
@@ -40,8 +39,6 @@ const timelineCustomNodeByCeremony: Record<WeddingCeremony, ReactNode> = {
 const InfoSection: FC<SharedPropsWithWeddingInfo> = (props) => {
   const { weddingInfo, className = '' } = props;
 
-  const { theme } = useContext(AppThemeContext) as AppThemeContextValue;
-
   const schedule = weddingInfo.schedule;
   const dateTimeFormatOptions = schedule.length > 0 ? dateTimeFormatOptionsWithSchedule : dateTimeFormatOptionsWithoutSchedule;
 
@@ -59,14 +56,7 @@ const InfoSection: FC<SharedPropsWithWeddingInfo> = (props) => {
 
 
   return (
-    <section
-      id="info"
-      className={`
-        px-4 py-6
-        ${className}
-      `}
-      data-theme={theme}
-    >
+    <section id="info" className={className}>
       <div className="container mx-auto">
         <div className="text-center mb-6 md:mb-14">
           <p>
@@ -106,9 +96,9 @@ const InfoSection: FC<SharedPropsWithWeddingInfo> = (props) => {
           nodeClassName="opacity-75"
           timeClassName="font-bold"
         />
-        <p className="mt-8 text-center italic text-stone-400 text-2xl">
+        {/* <p className="mt-8 text-center italic text-2xl text-caption">
           {weddingInfo.hashtag}
-        </p>
+        </p> */}
       </div>
     </section>
   );

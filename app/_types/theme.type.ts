@@ -1,1 +1,1 @@
-export type AppTheme = 'day' | 'night';
+export type Theme = 'day' | 'night';

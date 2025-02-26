@@ -1,4 +1,4 @@
-import { AppTheme } from './theme.type';
+import { Theme } from './theme.type';
 import { Translation } from './translation.type';
 
 export enum WeddingCeremony {
@@ -34,7 +34,7 @@ export type WeddingInfo = {
     qrUrl?: string;
   }[];
   rsvpUrl: string;
-  coverImage: Record<AppTheme, { src: string; position: string; }>;
+  coverImage: Record<Theme, { src: string; position: string; }>;
   galleryImages: string[];
   hashtag?: string;
 };

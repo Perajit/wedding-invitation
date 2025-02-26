@@ -2,17 +2,17 @@ import '@/app/globals.css';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { mockWeddingInfo } from '@/app/_mocks/wedding-info.mock';
-import Hero from './Hero';
+import HeroSection from './HeroSection';
 
 const meta = {
   title: 'Base/Invitation/Hero',
-  component: Hero,
+  component: HeroSection,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {},
-} satisfies Meta<typeof Hero>;
+} satisfies Meta<typeof HeroSection>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
