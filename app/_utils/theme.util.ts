@@ -1,11 +1,14 @@
-import { Theme } from '../_types/theme.type';
+'use client';
 
-const dayCutoffThHours = 6;
-const nightCutoffThHours = 18;
+import { Theme } from '@/app/_types/theme.type';
+
+const timeZone = 'Asia/Bangkok';
+const dayCutoffTimeString = '06:00:00';
+const nightCutoffTimeString = '18:00:00';
 
 export const getDefaultTheme = (): Theme => {
-  const currentUtcHours = new Date().getUTCHours();
-  const currentThHours = currentUtcHours + 7;
+  const currentDate = new Date();
+  const localTimeString = currentDate.toLocaleTimeString('th-TH', { timeZone });
 
-  return currentThHours >= dayCutoffThHours && currentThHours < nightCutoffThHours ? 'day' : 'night';
+  return localTimeString >= dayCutoffTimeString && localTimeString < nightCutoffTimeString ? 'day' : 'night';
 };
