@@ -79,6 +79,32 @@ export const mockWeddingInfo: WeddingInfo = {
       },
     },
   ],
+  donation: {
+    qrUrl: 'data:image/png;base64,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',
+    accountInfo: [
+      {
+        label: {
+          EN: 'Bank',
+          TH: 'ธนาคาร',
+        },
+        value: 'ไทยพาณิชย์'
+      },
+      {
+        label: {
+          EN: 'Account Name',
+          TH: 'ชื่อบัญชี',
+        },
+        value: 'น.ส. แมรี่ เจน'
+      },
+      {
+        label: {
+          EN: 'Account No.',
+          TH: 'เลขที่บัญชี',
+        },
+        value: '123-4-56789-0'
+      },
+    ],
+  },
   rsvpUrl: 'https://google.com',
   coverImage: {
     day: {

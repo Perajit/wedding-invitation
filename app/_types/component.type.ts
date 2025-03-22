@@ -1,6 +1,7 @@
 import { WeddingInfo } from './wedding.type';
 
 export type SharedProps = {
+  id?: string;
   className?: string;
 };
 

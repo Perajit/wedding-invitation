@@ -13,6 +13,11 @@ const GallerySection: FC<SharedPropsWithWeddingInfo> = (props) => {
 
   return (
     <section id="gallery" className={className}>
+      {weddingInfo.hashtag ? (
+        <h1 className="mb-6 lg:mb-8 text-center text-2xl lg:text-3xl">
+          {weddingInfo.hashtag}
+        </h1>
+      ) : null}
       <div className="container mx-auto">
         <BaseImageCollection items={items}/>
       </div>

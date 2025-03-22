@@ -18,6 +18,14 @@ const nodeResponsiveClassNameByScreen: Record<ScreenSize, string> = {
   '2xl': '2xl:flex-row 2xl:w-full',
 };
 
+const nodeContentResponsiveClassNameByScreen: Record<ScreenSize, string> = {
+  'sm': 'sm:max-md:mb-0',
+  'md': 'md:max-lg:mb-0',
+  'lg': 'lg:max-xl:mb-0',
+  'xl': 'xl:max-2xl:mb-0',
+  '2xl': '2xl:mb-2',
+};
+
 const leftSpaceResponsiveClassNameByScreen: Record<ScreenSize, string> = {
   'sm': 'sm:max-md:flex-1',
   'md': 'md:max-lg:flex-1',
@@ -81,16 +89,18 @@ export const BaseTimelineItem: FC<BaseTimelineItemProps> = (props) => {
   type ResponsiveClassNames = {
     container: string;
     node: string;
+    nodeContent: string;
     leftSpace: string;
     connector: string;
   };
 
   const responsiveClassNames: ResponsiveClassNames = useMemo(() => {
-    const emptyClassNames: ResponsiveClassNames = { container: '', node: '', leftSpace: '', connector: '' };
+    const emptyClassNames: ResponsiveClassNames = { container: '', node: '', nodeContent: '', leftSpace: '', connector: '' };
 
     return horizontalScreenSizes.reduce((result, screen) => ({
       container: result.container + ' ' + containerResponsiveClassNameByScreen[screen],
       node: result.node + ' ' + nodeResponsiveClassNameByScreen[screen],
+      nodeContent: result.nodeContent + ' ' + nodeContentResponsiveClassNameByScreen[screen],
       leftSpace: result.leftSpace + ' ' + leftSpaceResponsiveClassNameByScreen[screen],
       connector: result.connector + ' ' + connectorResponsiveClassNameByScreen[screen],
     }), emptyClassNames);
@@ -139,7 +149,7 @@ export const BaseTimelineItem: FC<BaseTimelineItemProps> = (props) => {
           style={nextConnectorStyle}
         />
       </div>
-      <div className="flex-1 m-3">
+      <div className={`flex-1 m-3 ${responsiveClassNames.nodeContent}`}>
         <div className={connectorSharedClassName} />
         <div className={`min-w-40 ${contentclassName}`}>
           <time

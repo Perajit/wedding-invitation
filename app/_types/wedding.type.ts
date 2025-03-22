@@ -30,6 +30,13 @@ export type WeddingInfo = {
   rsvpUrl: string;
   coverImage: Record<Theme, { src: string; position: string; }>;
   galleryImages: string[];
+  donation?: {
+    qrUrl: string;
+    accountInfo: {
+      label: Translation<string>;
+      value: string;
+    }[];
+  },
   hashtag?: string;
 };
 
