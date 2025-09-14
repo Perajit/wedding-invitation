@@ -12,13 +12,14 @@ import InvitationSection from './InvitationSection/InvitationSection';
 import LocationSection from './LocationSection/LocationSection';
 import ScheduleSection from './ScheduleSection/ScheduleSection';
 
-const bgClassNameByTheme: Record<Theme, string> = {
-  day: `bg-[url(/images/bg-overlay-day.webp)]`,
-  night: `bg-[url(/images/bg-overlay-night.webp)]`,
+type InvitationContainerProps = SharedPropsWithWeddingInfo & {
+  bgClassNameByTheme: Record<Theme, string>;
 };
 
-const InvitationContainer: FC<SharedPropsWithWeddingInfo> = ({ weddingInfo }) => {
-  const {theme } = useContext(ThemeContext) as ThemeContextValue;
+const InvitationContainer: FC<InvitationContainerProps> = (props) => {
+  const { weddingInfo, bgClassNameByTheme } = props;
+
+  const { theme } = useContext(ThemeContext) as ThemeContextValue;
 
   return weddingInfo ? (
     <div
@@ -36,7 +37,7 @@ const InvitationContainer: FC<SharedPropsWithWeddingInfo> = ({ weddingInfo }) =>
   ) : null;
 };
 
-const InvitationContainerWithTheme: FC<SharedPropsWithWeddingInfo> = (props) => (
+const InvitationContainerWithTheme: FC<InvitationContainerProps> = (props) => (
   <ThemeContextProvider>
     <InvitationContainer {...props} />
   </ThemeContextProvider>
