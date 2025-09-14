@@ -21,6 +21,7 @@ export type WeddingInfo = {
   place: {
     title: Translation<string>;
     location: Translation<string>;
+    embeddedMapSrc: string;
   };
   schedule: {
     ceremony: WeddingCeremony,

@@ -32,6 +32,7 @@ export const mockWeddingInfo: WeddingInfo = {
       [Language.EN]: '494 Ratchadamri Rd, Khwaeng Lumphini, Pathum Wan, Bangkok',
       [Language.TH]: '494 ถนนราชดำริ แขวงลุมพินี เขตปทุมวัน กรุงเทพมหานคร ประเทศไทย'
     },
+    embeddedMapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.5837774002607!2d100.53803577600715!3d13.743630986647386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2993a5c6c7519%3A0x61da02c29dd05357!2sErawan%20Bangkok!5e0!3m2!1sen!2sth!4v1757873020148!5m2!1sen!2sth',
   },
   schedule: [
     {
