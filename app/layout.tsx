@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
+import ServiceWorkerProvider from './ServiceWorkerProvider';
 
 const DefaultFont = localFont({
   src: '../public/fonts/Default.ttf',
@@ -18,6 +19,7 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 });
+
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return getMetadata();
@@ -40,6 +42,7 @@ export default function RootLayout({
           antialiased
         `}
       >
+        <ServiceWorkerProvider />
         {children}
       </body>
     </html>
