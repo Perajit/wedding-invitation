@@ -23,7 +23,7 @@ const LocationSection: FC<SharedPropsWithWeddingInfo> = (props) => {
         </span>
       </div>
       <div className="flex-1">
-        <iframe src={place.embeddedMapSrc} className="mx-auto w-full h-full" />
+        <iframe title="Location" src={place.embeddedMapSrc} className="mx-auto w-full h-full" />
       </div>
     </BaseCardSection>
   );
